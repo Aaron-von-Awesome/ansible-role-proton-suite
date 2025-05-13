@@ -1,0 +1,25 @@
+---
+# ============================================================
+#                       Role: proton_suite
+# ============================================================
+
+- name: "Block: Install proton_suite Ansible Role"
+  become: true
+  block:
+
+
+    # TODO: Add Tasks
+    - name: "TODO: Add Tasks"
+      ansible.builtin.debug:
+        msg: "TODO: Add Tasks"
+
+
+  rescue:
+
+    - name: "ERROR: Failed to install proton_suite"
+      ansible.builtin.debug:
+        msg: "ERROR: Failed to install proton_suite"
+
+    - name: "Error detected! Stopping Playbook :-("
+      ansible.builtin.fail:
+        msg: "Error detected! Stopping Playbook :-("

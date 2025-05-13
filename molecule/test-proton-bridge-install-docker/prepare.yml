@@ -1,0 +1,14 @@
+---
+- name: Prepare
+  hosts:
+    - all
+  gather_facts: false
+
+  tasks:
+
+    - name: "Assert xyz is NOT installed"
+      ansible.builtin.assert:
+        that:
+          - xyz_installed.rc > 0
+        fail_msg: "xyz IS installed...bad :-("
+        success_msg: "xyz is not installed...good!"
