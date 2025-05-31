@@ -5,14 +5,23 @@
 
 - name: "Block: Install proton_suite Ansible Role"
   become: true
+  vars:
+    _proton_suite_should_install_proton_bridge: "{{ proton_suite_should_install_proton_bridge | bool }}"
   block:
 
+    - name: Gather Installed Package Facts
+      ansible.builtin.package_facts:
+        manager: apt
 
-    # TODO: Add Tasks
-    - name: "TODO: Add Tasks"
-      ansible.builtin.debug:
-        msg: "TODO: Add Tasks"
+    # ============================================================
 
+    - name: "-------> Install Proton Bridge Tasks"
+      include_tasks: ./proton-bridge.yaml
+      # TODO: Run Molecule converge twice to see what the actual fact path is
+      # when: >
+      #   ansible_facts.packages.proton_bridge[0].version | default("0") == 0
+      #   and
+      #   _proton_suite_should_install_proton_bridge
 
   rescue:
 
