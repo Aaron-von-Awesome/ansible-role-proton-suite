@@ -6,9 +6,14 @@
 
   tasks:
 
-    - name: "Assert xyz is installed"
-      ansible.builtin.assert:
-        that:
-          - xyz_installed.rc == 0
-        fail_msg: "xyz is not installed"
-        success_msg: "xyz is installed"
+#     - name: "Assert xyz is installed"
+#       ansible.builtin.assert:
+#         that:
+#           - xyz_installed.rc == 0
+#         fail_msg: "xyz is not installed"
+#         success_msg: "xyz is installed"
+
+
+    - name: "TODO: Verify"
+      ansible.builtin.debug:
+        msg: "TODO: Verify"

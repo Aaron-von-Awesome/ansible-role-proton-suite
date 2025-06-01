@@ -8,6 +8,8 @@
 
   tasks:
 
-    - name: "Converge - Scenario: Test xyz Install"
+    - name: "Converge - Scenario: Test Proton Bridge Install"
       ansible.builtin.include_role:
         name: "aaronvonawesome.proton_suite"
+      vars:
+        proton_suite_should_install_proton_bridge: true

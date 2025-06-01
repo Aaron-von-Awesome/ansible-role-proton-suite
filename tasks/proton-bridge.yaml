@@ -12,8 +12,8 @@
 
     - name: "Extract the DEB filename from the API response"
       ansible.builtin.set_fact:
-        _fact_proton_bridge_deb_filename: "{{ (github_release_api.json.assets |
-                          selectattr('name', 'match', '^protonmail-bridge_.*_amd64.deb$')).0.name }}"
+        _fact_proton_bridge_deb_filename: "{{ (_github_release_api.json.assets |
+          selectattr('name', 'match', '^protonmail-bridge_.*_amd64.deb$')).0.name }}"
 
     - name: "Install Proton Bridge DEB Package (Latest Version)"
       ansible.builtin.apt:
