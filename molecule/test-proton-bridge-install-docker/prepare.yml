@@ -6,13 +6,16 @@
 
   tasks:
 
-    #     - name: "Assert xyz is NOT installed"
-    #       ansible.builtin.assert:
-    #         that:
-    #           - xyz_installed.rc > 0
-    #         fail_msg: "xyz IS installed...bad :-("
-    #         success_msg: "xyz is not installed...good!"
+    - name: "Check if Proton Bridge is installed"
+      ansible.builtin.command:
+        cmd: >
+          which protonmail-bridge
+      register: _proton_bridge_installed
+      ignore_errors: true
 
-    - name: "TODO: Prepare"
-      ansible.builtin.debug:
-        msg: "TODO: Prepare"
+    - name: "Assert Proton Bridge is NOT installed"
+      ansible.builtin.assert:
+        that:
+          - _proton_bridge_installed.rc > 0
+        fail_msg: "Proton Bridge IS installed...bad :-("
+        success_msg: "Proton Bridge is not installed...good!"
