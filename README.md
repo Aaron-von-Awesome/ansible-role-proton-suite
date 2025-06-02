@@ -10,7 +10,7 @@ This Ansible Role that will install the Proton (proton.me) .deb packages for the
 
 ## Role Variables
 
-### var_proton_suite_should_install_proton_bridge
+### var_proton_suite_should_install_proton_mail_bridge
 
 ***default:*** false
 
@@ -38,7 +38,7 @@ Set to `true` in order to install Proton Mail Bridge DEB package.
       ansible.builtin.include_role:
         name: "aaronvonawesome.proton_suite"
       vars:
-        var_proton_suite_should_install_proton_bridge: true
+        var_proton_suite_should_install_proton_mail_bridge: true
 ```
 
 ## License
